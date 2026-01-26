@@ -8,7 +8,7 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 
 | Milestone          | Status         | Notes                   |
 | ------------------ | -------------- | ----------------------- |
-| M1: SharePoint     | ⏳ In progress | list + library + views  |
+| M1: SharePoint     | ✅ Done        | list + library + views  |
 | M2: Power Apps MVP | ⏳ In progress | validations + Patch     |
 | M3: Upload flow    | ⏳ In progress | PowerApps V2 trigger    |
 | M4: Approvals      | Planned        | Security → Legal → Mgmt |
@@ -46,22 +46,22 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 
 #### 2.1 Create the Contract Register list
 
-- [ ] Create SharePoint list: **contract_register**
-- [ ] Add columns for:
-  - [ ] Contract ID (unique)
-  - [ ] Contract title + description
-  - [ ] Contractor name, optional NIP/KRS
-  - [ ] Dates (concluding/start/end)
-  - [ ] Team + contact person (Person field)
-  - [ ] Procurement type
-  - [ ] Personal data processing
-  - [ ] ATC + Legal review + Realisation status
-  - [ ] Rejection reason + audit fields (optional)
-- [ ] Create views:
-  - [ ] New / In Security / In Legal / In Management
-  - [ ] To fix
-  - [ ] Approved / Closed
-  - [ ] Overdue (based on date logic)
+- [x] Create SharePoint list: **contract_register**
+- [x] Add columns for:
+  - [x] Contract ID (unique)
+  - [x] Contract title + description
+  - [x] Contractor name, optional NIP/KRS
+  - [x] Dates (concluding/start/end)
+  - [x] Team + contact person (Person field)
+  - [x] Procurement type
+  - [x] Personal data processing
+  - [x] ATC + Legal review + Realisation status
+  - [x] Rejection reason + audit fields (optional)
+- [x] Create views:
+  - [x] New / In Security / In Legal / In Management
+  - [x] To fix
+  - [x] Approved / Closed
+  - [x] Overdue (based on date logic)
         Lock down SharePoint UI (recommended):
   - [ ] Restrict permissions so users **cannot create/edit items directly in SharePoint** (use Power Apps only)
   - [ ] Hide/disable **"New"** button for end users where possible (modern list experience limitations apply)
@@ -71,13 +71,13 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 
 #### 2.2 Create Attachments library
 
-- [ ] Create SharePoint document library: **contract_attachments**
-- [ ] Folder strategy: `/ContractId/` per contract
-- [ ] Decide if metadata columns are needed:
-  - [ ] ContractId
+- [x] Create SharePoint document library: **contract_attachments**
+- [x] Folder strategy: `/ContractId/` per contract
+- [x] Decide if metadata columns are needed:
+  - [x] ContractId
   - [ ] AttachmentType (Contract / ATC / Other)
   - [ ] Stage (Submitted / Security / Legal / Management / Fix)
-- [ ] Enable versioning
+- [x] Enable versioning
 - [ ] Confirm default permissions (least privilege)
 
 ---
