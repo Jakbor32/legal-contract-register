@@ -1,0 +1,5 @@
+If(
+LookUp(contract_register, ID=Value(Param("contractId"))).status.Value = "Needs correction",
+edit_contract,
+add_contract
+)

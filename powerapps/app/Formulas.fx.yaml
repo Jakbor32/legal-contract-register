@@ -1,0 +1,9 @@
+// Translation function
+T(key: Text): Text =
+With(
+    { r: LookUp(colTr, Key = key) },
+    Coalesce(
+        If(varLang = "pl", r.pl, r.en),
+        key
+    )
+);

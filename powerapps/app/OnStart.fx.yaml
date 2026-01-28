@@ -1,0 +1,41 @@
+Set(contractId,Value(Param("contractId")));
+// only for testing --- Set(contractId,ID_here);
+If(
+   contractId<>0, 
+Set(varContract, LookUp(contract_register, ID=contractId));
+);
+
+// translation
+Set(varLang, Left(Language(), 2));   // "pl" / "en" default:"en"
+ClearCollect(
+    colTr,
+    {Key:"LBL_CONTRACT_ID", pl:"ID umowy *", en:"Contract ID *"},
+    {Key:"LBL_CONTRACT_TITLE", pl:"Tytuł umowy (czego dotyczy umowa)", en:"Contract title (what the contract is about)"},
+    {Key:"LBL_CONTRACT_TYPE", pl:"Typ umowy (umowy co do zasady są podpisywane elektronicznie, czy potrzebujesz umowy podpisanej odręcznie?)", en:"Contract type (contracts are generally signed electronically; do you need a wet-ink signed contract?)"},
+    {Key:"LBL_WET_SIGNATURE_CHECKBOX", pl:"Zaznacz jeśli umowa wymaga podpisu odręcznego", en:"Check if the contract requires a wet-ink signature"},
+    {Key:"LBL_HAS_ANNEX", pl:"Czy umowa zawiera aneks?", en:"Does the contract include an annex?"},
+    {Key:"LBL_HAS_ANNEX_HINT", pl:"Zaznacz jeśli umowa zawiera aneks", en:"Check if the contract includes an annex"},
+    {Key:"LBL_SIGNER", pl:"Podpisujący", en:"Signer"},
+    {Key:"LBL_CONTRACTOR_FULL_NAME", pl:"Pełna nazwa kontraktora *", en:"Contractor's full name *"},
+    {Key:"LBL_TAX_NO_NIP", pl:"Numer NIP", en:"Tax no. (NIP)"},
+    {Key:"LBL_REGISTRATION_NO_KRS", pl:"Numer KRS", en:"Registration No. (KRS)"},
+    {Key:"LBL_DATE_OF_CONCLUDING", pl:"Data zawarcia umowy *", en:"Date of concluding agr. *"},
+    {Key:"LBL_CURRENCY", pl:"Waluta", en:"Currency"},
+    {Key:"LBL_AMOUNT", pl:"Kwota", en:"Amount"},
+    {Key:"LBL_DESCRIPTION", pl:"Opis * (maks 255 znaków", en:"Description * (max 255 chars)"},
+    {Key:"LBL_START_DATE", pl:"Data rozpoczęcia *", en:"Start date *"},
+    {Key:"LBL_END_DATE", pl:"Data zakończenia", en:"End date"},
+    {Key:"LBL_TEAM", pl:"Dział *", en:"Team *"},
+    {Key:"LBL_CONTACT_PERSON", pl:"Osoba kontaktowa *", en:"contact person *"},
+    {Key:"LBL_PROCUREMENT_TYPE", pl:"Rodzaj zamówienia *", en:"Procurement type *"},
+    {Key:"LBL_PERSONAL_DATA_PROCESSING", pl:"Przetwarzanie danych osobowych *", en:"Personal data processing *"},
+    {Key:"LBL_ATC", pl:"ATC *", en:"ATC *"},
+    {Key:"LBL_LEGAL_REVIEW", pl:"Weryfikacja Prawna *", en:"Legal review *"},
+    {Key:"LBL_REALISATION_STATUS", pl:"Status realizacji *", en:"Realisation status *"},
+    {Key:"LBL_ATTACHMENTS", pl:"Załączniki", en:"Attachments"},
+    {Key:"LBL_ADD_CONTRACT_FILE", pl:"Dodaj plik umowy do sprawdzenia", en:"Add the contract file for review"},
+    {Key:"BTN_SUBMIT", pl:"Wyślij", en:"Submit"},
+    {Key:"BTN_CLEAR", pl:"Wyczyść", en:"Clear"}
+    
+
+);

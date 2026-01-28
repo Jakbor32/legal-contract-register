@@ -1,0 +1,736 @@
+Screens:
+  add_contract:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - main_form:
+          Control: GroupContainer@1.4.0
+          Variant: AutoLayout
+          Properties:
+            Height: =732
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Width: =1326
+            X: =20
+            Y: =20
+          Children:
+            - contract_id_label:
+                Control: Text@0.0.51
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  Height: =36
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =0
+                  Size: =20
+                  Text: =T("LBL_CONTRACT_ID")
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =20
+            - contract_id_input:
+                Control: TextInput@0.0.54
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =0
+                  Height: =100
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  PaddingBottom: =0
+                  Width: =712
+                  X: =268
+                  Y: =36
+            - contract_title_label:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  AlignInContainer: =AlignInContainer.Center
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingTop: =0
+                  Size: =20
+                  Text: =T("LBL_CONTRACT_TITLE")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =157
+            - contract_title_input:
+                Control: TextInput@0.0.54
+                Properties:
+                  Height: =100
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  Width: =712
+                  X: =268
+                  Y: =192
+            - Contract_type_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =80
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_CONTRACT_TYPE")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =712
+                  X: =268
+                  Y: =329
+            - contract_type_value:
+                Control: CheckBox@0.0.30
+                Properties:
+                  CheckboxSize: |
+                    =24
+                  FontSize: =18
+                  Height: =50
+                  Label: =T("LBL_WET_SIGNATURE_CHECKBOX")
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+                  X: =268
+                  Y: =394
+            - annex_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_HAS_ANNEX")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =712
+                  X: =268
+                  Y: =329
+            - annex_value:
+                Control: CheckBox@0.0.30
+                Properties:
+                  CheckboxSize: |
+                    =24
+                  FontSize: =18
+                  Height: =50
+                  Label: =T("LBL_HAS_ANNEX_HINT")
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+                  X: =268
+                  Y: =65
+            - signer_label:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  AlignInContainer: =AlignInContainer.Center
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_SIGNER")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =456
+            - signer_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: =["", ""]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - contractor_name_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_CONTRACTOR_FULL_NAME")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =558
+            - contractor_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  FontWeight: =FontWeight.Normal
+                  Height: =50
+                  Items: =Contractors
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+                Children:
+                  - ctr_select:
+                      Control: ComboBoxDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Nazwa"
+                        FieldName: ="Nazwa"
+                        FieldType: ="s"
+                        Order: =3
+            - tax_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_TAX_NO_NIP")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =558
+            - tax_input:
+                Control: TextInput@0.0.54
+                Properties:
+                  Height: =100
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  Width: =712
+                  X: =268
+                  Y: =36
+            - reg_no_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_REGISTRATION_NO_KRS")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - reg_no_input:
+                Control: TextInput@0.0.54
+                Properties:
+                  Height: =100
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  Width: =712
+                  X: =268
+                  Y: =36
+            - date_of_concluding_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_DATE_OF_CONCLUDING")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - date_picker_1:
+                Control: DatePicker@0.0.46
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  StartDate: =Today()
+                  Width: =712
+            - currency_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_CURRENCY")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - currency_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: =["PLN", "USD", "EUR", "JPY", "CHF", "CAD", "UA"]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - amount_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_AMOUNT")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - amount_value:
+                Control: NumberInput@2.9.12
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - desc_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_DESCRIPTION")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =558
+            - desc_input:
+                Control: TextInput@0.0.54
+                Properties:
+                  Height: =100
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  MaxLength: =255
+                  Mode: ='TextInputCanvas.Mode'.Multiline
+                  Width: =712
+                  X: =268
+                  Y: =36
+            - start_date_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_START_DATE")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - start_date_picker_2:
+                Control: DatePicker@0.0.46
+                Properties:
+                  EndDate: =end_date_picker_3.SelectedDate
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  ValidationState: =
+                  Width: =712
+            - end_date_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_END_DATE")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =522
+            - end_date_picker_3:
+                Control: DatePicker@0.0.46
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  StartDate: =start_date_picker_2.SelectedDate
+                  Width: =712
+            - team_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_TEAM")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - team_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  InputTextPlaceholder: ="Select your team"
+                  Items: |+
+                    =[
+                      "Accounting",
+                      "Administration",
+                      "BHP (Safety)",
+                      "Compliance",
+                      "Controlling",
+                      "Education",
+                      "Emergency",
+                      "Executive Director",
+                      "Experts",
+                      "Field Operations Manager",
+                      "Finance",
+                      "Fundraising",
+                      "Global HoP",
+                      "Global MEAL",
+                      "HR",
+                      "IDR",
+                      "Internal Audit",
+                      "IT",
+                      "Legal",
+                      "Logistics",
+                      "Management Board",
+                      "Marketing/Communication",
+                      "Missions HQ (Field Operations)",
+                      "MF Manager + PR",
+                      "Pajacyk",
+                      "Programs",
+                      "Security"
+                    ]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - contact_person_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_CONTACT_PERSON")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - contact_person_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  DefaultSelectedItems: =Office365Users.MyProfile()
+                  Height: =50
+                  Items: |
+                    =Sort(Office365Users.SearchUser({searchTerm:Self.SearchText, top:10}), DisplayName, SortOrder.Ascending)
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Keypress
+                  Width: =712
+                Children:
+                  - Mail1:
+                      Control: ComboBoxDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Mail"
+                        FieldName: ="Mail"
+                        FieldType: ="s"
+                        Order: =1
+            - procurement_type_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_PROCUREMENT_TYPE")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - procurement_type_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: |
+                    =[
+                      "Not applicable",
+                      "I Direct Purchase",
+                      "II One Quotation",
+                      "III QA Procedure",
+                      "IV National Tender",
+                      "V International Tender"
+                    ]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - pdp_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_PERSONAL_DATA_PROCESSING")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - pdp_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: =["YES", "NO", "NOT NEEDED"]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - atc_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_ATC")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - atc_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: =["YES", "NO", "NOT NEEDED"]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - legal_review_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_LEGAL_REVIEW")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - legal_review_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Height: =50
+                  Items: =["YES", "NO"]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - status_label:
+                Control: Text@0.0.51
+                Properties:
+                  Height: =50
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Size: =20
+                  Text: =T("LBL_REALISATION_STATUS")
+                  VerticalAlign: =VerticalAlign.Bottom
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =710
+                  X: =268
+                  Y: =30
+            - status_select:
+                Control: ComboBox@0.0.51
+                Properties:
+                  FontWeight: =FontWeight.Normal
+                  Height: =50
+                  Items: =["Open", "Closed", "To be iniciated"]
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =712
+            - external_attachments_container:
+                Control: GroupContainer@1.4.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.None
+                  Height: =501
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =200
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =712
+                  X: =798
+                  Y: =28
+                Children:
+                  - attachments_label:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        Height: =47
+                        Size: =20
+                        Text: =T("LBL_ATTACHMENTS")
+                        VerticalAlign: =VerticalAlign.Bottom
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =712
+                  - FluentFilesImportControl1_3:
+                      Control: CodeComponent
+                      ComponentName: citdevkk_cdFI.FluentFilesImportControl
+                      Properties:
+                        AllowDropFilesText: ="Upuść pliki tutaj"
+                        AllowMultipleFiles: =true
+                        AllowedFileTypes: =".doc;.docx"
+                        ButtonIcon: ="DocumentArrowUp"
+                        ButtonSize: ='cdFI.FluentFilesImportControl.ButtonSize'.Large
+                        Height: =51
+                        OnChange: |-
+                          = If(!IsBlank(FluentFilesImportControl1_3.FilesAsJSON),
+                                          Notify("Załącznik nr 1 dodany pomyślnie", NotificationType.Success))
+                        SecondaryContent: ="Doc, Docx"
+                        ShowSecondaryContent: =true
+                        Text: =T("LBL_ADD_CONTRACT_FILE")
+                        Width: =384
+                        Y: =63
+      - ButtonCanvas2:
+          Control: Button@0.0.45
+          Group: main_buttons
+          Properties:
+            Align: =Align.Center
+            FontSize: =20
+            Height: =49
+            Icon: ="Add"
+            Layout: ='ButtonCanvas.Layout'.TextOnly
+            OnSelect: "=Set(\r\n    hasInvalidFiles,\r\n    !IsEmpty(\r\n        Filter(\r\n            Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),\r\n            !(Lower(Right(Value.name, 5)) = \".docx\" || Lower(Right(Value.name, 4)) = \".doc\")\r\n        )\r\n        \r\n    )\r\n);\r\n  If(\r\n    hasInvalidFiles,\r\n    Notify(\"Nieprawidłowy format pliku. Dozwolone są tylko DOC i DOCX.\", NotificationType.Error)\r\n);\r\n  \r\n  \r\n   Set(missingFields, \"\");\r\n\r\n\r\n// Sprawdzenia każdego pola\r\nIf(IsBlank(contract_id_input.Value),\r\n   Set(missingFields, missingFields & \"ID umowy, \")\r\n);\r\n\r\nIf(IsBlank(contract_title_input.Value),\r\n   Set(missingFields, missingFields & \"Tytuł umowy, \")\r\n);\r\nIf(IsBlank(desc_input.Value),\r\n   Set(missingFields, missingFields & \"Description, \")\r\n);\r\n\r\nIf(IsBlank(contractor_select.Selected),\r\n   Set(missingFields, missingFields & \"Contractor full name, \")\r\n);\r\n\r\nIf(IsBlank(date_picker_1.SelectedDate),\r\n   Set(missingFields, missingFields & \"Date of concluding agr., \")\r\n);\r\n\r\n//If(IsBlank(ComboboxCanvas1_8.Selected),\r\n //  Set(missingFields, missingFields & \"Currency, \")\r\n//);\r\n\r\nIf(IsBlank(start_date_picker_2.SelectedDate),\r\n   Set(missingFields, missingFields & \"Start date, \")\r\n);\r\n\r\nIf(IsBlank(team_select.Selected),\r\n   Set(missingFields, missingFields & \"Team, \")\r\n);\r\n\r\nIf(IsBlank(contact_person_select.Selected),\r\n   Set(missingFields, missingFields & \"contact person, \")\r\n);\r\n\r\nIf(IsBlank(procurement_type_select.Selected),\r\n   Set(missingFields, missingFields & \"Procurement type, \")\r\n);\r\n\r\nIf(IsBlank(pdp_select.Selected),\r\n   Set(missingFields, missingFields & \"Personal data processing, \")\r\n);\r\n\r\nIf(IsBlank(atc_select.Selected),\r\n   Set(missingFields, missingFields & \"ATC, \")\r\n);\r\n\r\nIf(IsBlank(legal_review_select.Selected),\r\n   Set(missingFields, missingFields & \"Legal review, \")\r\n);\r\n\r\nIf(IsBlank(status_select.Selected),\r\n   Set(missingFields, missingFields & \"Realisation status, \")\r\n);\r\nIf(IsBlank(FluentFilesImportControl1_3.FilesAsJSON),\r\n    Set(missingFields, missingFields & \"Brak załącznika, \")\r\n);\r\nIf(\r\n   !IsBlank(contract_id_input.Value) &&\r\n!IsBlank(contract_title_input.Value) &&\r\n!IsBlank(signer_select.Selected) &&\r\n!IsBlank(date_picker_1.SelectedDate) &&\r\n//!IsBlank(ComboboxCanvas1_8.Selected) &&\r\n!IsBlank(desc_input.Value) &&\r\n!IsBlank(start_date_picker_2.SelectedDate) &&\r\n!IsBlank(team_select.Selected) &&\r\n!IsBlank(contact_person_select.Selected) &&\r\n!IsBlank(procurement_type_select.Selected) &&\r\n!IsBlank(pdp_select.Selected) &&\r\n!IsBlank(atc_select.Selected) &&\r\n!IsBlank(legal_review_select.Selected) &&\r\n!IsBlank(FluentFilesImportControl1_3.FilesAsJSON) &&\r\n!IsBlank(status_select.Selected) &&\r\n!hasInvalidFiles,\r\n \r\n    With(\r\n        {\r\n            newRecord: Patch(\r\n                contract_register,\r\n                Defaults(contract_register),\r\n                {\r\n                    Title: contract_id_input.Value,\r\n                    contract_title: contract_title_input.Value,\r\n                    contract_type: {\r\n                        Value: If(contract_type_value.Checked, \"Podpis odręczny\", \"Podpis elektroniczny\")\r\n                    },\r\n                    annex: annex_value.Checked,\r\n                    signer: signer_select.Selected.Value,\r\n                    Contractor_full_name: contractor_select.Selected.Nazwa,\r\n                    Tax_no:tax_input.Value,\r\n                    registration_no: reg_no_input.Value,\r\n                    Date_of_concluding_agr: date_picker_1.SelectedDate,\r\n                    Currency: currency_select.Selected.Value,\r\n                    Amount: amount_value.Value,\r\n                    start_flow: true,\r\n                    Description:desc_input.Value, \r\n                    Start_date:start_date_picker_2.SelectedDate,\r\n                    End_date:end_date_picker_3.SelectedDate,\r\n                    Team: team_select.Selected.Value, \r\n                    contact_person: {\r\n    '@odata.type': \"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser\",\r\n    Picture: Office365Users.UserPhotoV2(contact_person_select.Selected.Id),\r\n    Claims: \"i:0#.f|membership|\" & Lower(contact_person_select.Selected.Mail),\r\n    DisplayName: contact_person_select.Selected.DisplayName,\r\n    Email: contact_person_select.Selected.Mail,\r\n    Department: contact_person_select.Selected.Department,\r\n    JobTitle: contact_person_select.Selected.JobTitle\r\n},\r\n                    Procurement_type:procurement_type_select.Selected.Value, \r\n                    Person_data_processing:pdp_select.Selected.Value, \r\n                    ATC:atc_select.Selected.Value,\r\n                    Legal_review:legal_review_select.Selected.Value,\r\n                    Realisation_status:status_select.Selected.Value\r\n                }\r\n            )\r\n        },\r\n        \r\n        If(\r\n            !IsBlank(newRecord),\r\n            //forward to global var\r\n              Set(gblNewRecord, newRecord);\r\n\r\n            Notify(\"Umowa została dodana pomyślnie.\", NotificationType.Success);\r\nReset(contract_id_input);            // Title\r\nReset(contract_title_input);          // contract_title\r\nReset(contract_type_value);             // contract_type\r\nReset(signer_select);           // signer\r\nReset(signer_select);          // Contractor_full_name\r\nReset(tax_input);          // Tax_no\r\nReset(reg_no_input);          // registration_no\r\nReset(date_picker_1);           // Date_of_concluding_agr\r\nReset(currency_select);           // Currency\r\nReset(amount_value);                // Amount\r\nReset(desc_input);          // Description\r\nReset(start_date_picker_2);         // Start_date\r\nReset(end_date_picker_3);         // End_date\r\nReset(team_select);             // Team\r\nReset(contact_person_select);           // contact_person\r\nReset(procurement_type_select);           // Procurement_type\r\nReset(pdp_select);           // Person_data_processing\r\nReset(atc_select);           // ATC\r\nReset(legal_review_select);           // Legal_review\r\nReset(status_select);\r\nNavigate(atc_request,ScreenTransition.Fade);\r\n\r\n            // załącznik 1\r\n           // ForAll(\r\n           //     Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),\r\n           //    'zalacznik1'.Run(Text(newRecord.ID),\r\n           //  {file:\r\n           //{ contentBytes: Text(ThisRecord.Value.contentBytes), name: Text(ThisRecord.Value.name) }\r\n           //  }\r\n       // )\r\n         //   );\r\n         If(\r\n    hasInvalidFiles,\r\n    Notify(\"Wykryto nieprawidłowe pliki. Dozwolone formaty: DOCX, DOC.\", NotificationType.Error),\r\nForAll(\r\n    Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)), \r\n        \r\n        'zalacznik1'.Run(Text(newRecord.ID),\r\n            {\r\n                file: {\r\n                    contentBytes: Text(ThisRecord.Value.contentBytes),\r\n                    name: Text(ThisRecord.Value.name)\r\n                }\r\n            }\r\n        )\r\n    )\r\n         )\r\n\r\n\r\n\r\n\r\n\r\n            // załącznik 2\r\n            //ForAll(\r\n              //  Table(ParseJSON(FluentFilesImportControl1_1.FilesAsJSON)),\r\n              // 'zalacznik2'.Run(Text(newRecord.ID),\r\n             //{file:\r\n         //  { contentBytes: Text(ThisRecord.Value.contentBytes), name: Text(ThisRecord.Value.name) }\r\n           //  }\r\n       // )\r\n            );\r\n\r\n\r\n          //  // załącznik 3\r\n          //  ForAll(\r\n             //   Table(ParseJSON(FluentFilesImportControl1_2.FilesAsJSON)),\r\n             //  'zalacznik3'.Run(Text(newRecord.ID),\r\n           //  {file:\r\n          // { contentBytes: Text(ThisRecord.Value.contentBytes), name: Text(ThisRecord.Value.name) }\r\n        //     }\r\n      //  )\r\n            //);\r\n       // )\r\n    ),\r\n\r\n    Len(missingFields) > 0,\r\n   Notify(\r\n      \"Pola wymagane: \" & Left(missingFields, Len(missingFields) - 2),\r\n      NotificationType.Warning\r\n   )\r\n)\r\n"
+            Text: =T("BTN_SUBMIT")
+            Width: =134
+            X: =1132
+            Y: =666
+      - ButtonCanvas2_1:
+          Control: Button@0.0.45
+          Group: main_buttons
+          Properties:
+            Align: =Align.Center
+            FontSize: =20
+            Height: =46
+            OnSelect: =Set(varModal, true)
+            Text: =T("BTN_CLEAR")
+            Width: =134
+            X: =1132
+            Y: =588
+      - modal_bg:
+          Control: Rectangle@2.3.0
+          Group: modal_reset_form
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0.4)
+            Height: =768
+            OnSelect: =Set(varModal,false)
+            Visible: =varModal
+            Width: =1366
+      - modal_container:
+          Control: GroupContainer@1.4.0
+          Variant: ManualLayout
+          Group: modal_reset_form
+          Properties:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =242
+            Visible: =varModal
+            Width: =382
+            X: =492
+            Y: =266
+          Children:
+            - modal_text_info:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =88
+                  Size: =20
+                  Text: ="Czy na pewno chcesz wyczyścić wszystkie pola?"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =344
+                  X: =20
+                  Y: =40
+            - btn_no_modal:
+                Control: Button@0.0.45
+                Properties:
+                  OnSelect: =Set(varModal,false)
+                  Text: ="Anuluj"
+                  X: =68
+                  Y: =184
+            - btn_yes_modal:
+                Control: Button@0.0.45
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Primary
+                  BasePaletteColor: =RGBA(249, 83, 109, 1)
+                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                  OnSelect: |-
+                    =Reset(contract_id_input);
+                    Reset(contract_title_input);          // contract_title
+                    Reset(contract_type_value);             // contract_type
+                    Reset(signer_select);           // signer
+                    Reset(signer_select);          // Contractor_full_name
+                    Reset(tax_input);          // Tax_no
+                    Reset(reg_no_input);          // registration_no
+                    Reset(date_picker_1);           // Date_of_concluding_agr
+                    Reset(currency_select);           // Currency
+                    Reset(amount_value);                // Amount
+                    Reset(desc_input);          // Description
+                    Reset(start_date_picker_2);         // Start_date
+                    Reset(end_date_picker_3);         // End_date
+                    Reset(team_select);             // Team
+                    Reset(contact_person_select);           // contact_person
+                    Reset(procurement_type_select);           // Procurement_type
+                    Reset(pdp_select);           // Person_data_processing
+                    Reset(atc_select);           // ATC
+                    Reset(legal_review_select);           // Legal_review
+                    Reset(status_select);
+                    Set(varModal,false)
+                  Text: ="Wyczyść"
+                  X: =224
+                  Y: =184
+      - __status_contract_text:
+          Control: Text@0.0.51
+          Properties:
+            Text: =varContract.status.Value
+            X: =40
+            Y: =40
+      - change_lang_container:
+          Control: GroupContainer@1.4.0
+          Variant: ManualLayout
+          Properties:
+            Height: =42
+            Width: =92
+            X: =40
+            Y: =40
+          Children:
+            - lang_icon:
+                Control: Icon@0.0.7
+                Properties:
+                  Height: =42
+                  Icon: ="Globe"
+                  Width: =51
+            - lang_text:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =42
+                  Text: =If(varLang="pl", "PL", "ENG")
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =53
+                  X: =39
+            - btn_change_lang:
+                Control: Button@0.0.45
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Outline
+                  Height: =42
+                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                  OnSelect: |+
+                    =Set(varLang, If(varLang="pl","en","pl"));
+                  Text: =
+                  Width: =92
