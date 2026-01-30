@@ -651,7 +651,7 @@ Screens:
                   Align: ='TextCanvas.Align'.Center
                   Height: =88
                   Size: =20
-                  Text: ="Czy na pewno chcesz wyczyścić wszystkie pola?"
+                  Text: =T("MSG_CLEAR_CONFIRM")
                   VerticalAlign: =VerticalAlign.Middle
                   Width: =344
                   X: =20
@@ -660,7 +660,7 @@ Screens:
                 Control: Button@0.0.45
                 Properties:
                   OnSelect: =Set(varModal,false)
-                  Text: ="Anuluj"
+                  Text: =T("BTN_CANCEL")
                   X: =68
                   Y: =184
             - btn_yes_modal:
@@ -691,7 +691,7 @@ Screens:
                     Reset(legal_review_select);           // Legal_review
                     Reset(status_select);
                     Set(varModal,false)
-                  Text: ="Wyczyść"
+                  Text: =T("BTN_CLEAR")
                   X: =224
                   Y: =184
       - __status_contract_text:

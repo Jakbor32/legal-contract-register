@@ -87,20 +87,20 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 #### 3.1 Build the intake form
 
 - [ ] Create screens:
-  - [ ] New request (create)
+  - [x] New request (create)
   - [ ] Request details (read-only per stage)
   - [ ] Fix request (edit when status = To fix)
-- [ ] Implement required fields validation
-- [ ] Implement date rules:
-  - [ ] No past date (if required by process)
-  - [ ] End date cannot be before start date
-- [ ] Implement attachment validation:
-  - [ ] Contract: only `.doc/.docx`
-  - [ ] ATC: file name format `ATC REQUEST_<Vendor>.docx` (or `.doc`)
-- [ ] Implement clean UX:
-  - [ ] Disable submit button when inputs invalid
-  - [ ] Clear/reset form after successful submission
-  - [ ] Show success/warning/error notifications
+- [x] Implement required fields validation
+- [x] Implement date rules:
+  - [x] No past date (if required by process)
+  - [x] End date cannot be before start date
+- [x] Implement attachment validation:
+  - [x] Contract: only `.doc/.docx`
+  - [x] ATC: file name format `ATC REQUEST_<Vendor>.docx` (or `.doc`)
+- [x] Implement clean UX:
+  - [x] Disable submit button when inputs invalid
+  - [x] Clear/reset form after successful submission
+  - [x] Show success/warning/error notifications
 
 #### 3.2 Data write pattern
 
@@ -111,9 +111,10 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 
 #### 3.3 Bilingual UI (PL/EN)
 
-- [ ] Create a static translations dictionary in-app
-- [ ] Implement language toggle button
-- [ ] Use translation keys for labels and notifications
+- [x] Create a static translations dictionary in-app
+- [x] Implement language toggle button
+- [x] Use translation keys for labels and notifications
+- [ ] Complete translation coverage for the entire application
 
 ---
 
@@ -242,7 +243,7 @@ flowchart TD
 ## Assumptions / Constraints
 
 - [ ] Users submit requests **only via Power Apps** (SharePoint UI restricted)
-- [ ] Attachments are stored in SharePoint library and linked by **ContractId**
+- [x] Attachments are stored in SharePoint library and linked by **ContractId**
 - [ ] Status changes are performed **only by Power Automate flows**
 - [ ] Approvals are handled through Microsoft 365 Approvals / email links
 - [ ] The solution targets a single tenant and a single SharePoint site (initially)
@@ -353,7 +354,7 @@ flowchart TD
 
 ## Screens (planned)
 
-- [ ] **New Request**
+- [x] **New Request** (add_contract.yaml)
 - [ ] **Request Details** (read-only view)
 - [ ] **Fix Request** (enabled only when status = `To fix`)
 - [ ] **Admin Dashboard** (optional)

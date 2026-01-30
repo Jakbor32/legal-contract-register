@@ -1,0 +1,118 @@
+Screens:
+  upload_atc_request:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |+
+        =
+    Children:
+      - atc_container:
+          Control: GroupContainer@1.4.0
+          Variant: ManualLayout
+          Properties:
+            Height: =306
+            Width: =759
+            X: =305
+            Y: =200
+          Children:
+            - btn_upload_atc:
+                Control: CodeComponent
+                ComponentName: citdevkk_cdFI.FluentFilesImportControl
+                Properties:
+                  ButtonSize: ='cdFI.FluentFilesImportControl.ButtonSize'.Large
+                  DisabledFocusable: |
+                    =If(varHasRealFile, true,false)
+                  Height: =43
+                  OnChange: |
+                    =//check file
+                    Set(
+                        hasInvalidATCFileName,
+                        !IsEmpty(
+                            Filter(
+                                Table(ParseJSON(btn_upload_atc.FilesAsJSON)) As file,
+                                !(
+                                    StartsWith(Lower(file.Value.name & ""), "atc request_") &&
+                                    (
+                                        Lower(Right(file.Value.name & "", 5)) = ".docx" ||
+                                        Lower(Right(file.Value.name & "", 4)) = ".doc"
+                                    ) &&
+                                    Len(
+                                        Substitute(
+                                            Substitute(Lower(file.Value.name & ""), "atc request_", ""),
+                                            If(Lower(Right(file.Value.name & "", 5)) = ".docx", ".docx", ".doc"),
+                                            ""
+                                        )
+                                    ) > 0
+                                )
+                            )
+                        )
+                    );
+
+                    // upload
+                    If(
+                        hasInvalidATCFileName,
+                        Notify("Dozwolony jest tylko plik ATC REQUEST", NotificationType.Error),
+                        ForAll(
+                            Table(ParseJSON(btn_upload_atc.FilesAsJSON)) As file,
+                            REJESTR_PRAWNY_ATC_UPLOAD.Run(
+                                {
+                                    name: file.Value.name & "",
+                                    contentBytes: file.Value.contentBytes & ""
+                                },
+                                Text(gblNewRecord.ID)
+                            )
+                        )
+                    );
+                    //block after upload
+                    Set(
+                        varHasRealFile,
+                        IfError(
+                            CountRows(Table(ParseJSON(btn_upload_atc.FilesAsJSON))) > 0,
+                            false
+                        )
+                    );
+                  Text: =T("LBL_FILE_UPLOAD")
+                  Width: =168
+                  X: =475
+                  Y: =167
+            - btn_download_atc:
+                Control: Button@0.0.45
+                Properties:
+                  FontSize: =16
+                  Height: =47
+                  Icon: =
+                  Layout: ='ButtonCanvas.Layout'.TextOnly
+                  OnSelect: =Launch("link_to_empty_atc_request_template.docx")
+                  Text: =T("LBL_DOWNLOAD_EMPTY_ATC_REQUEST")
+                  Width: =285
+                  X: =48
+                  Y: =144
+            - atc_upload_label:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =59
+                  Size: =18
+                  Text: =T("LBL_UPLOAD_FILLED_ATC_REQUEST_FILE")
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =326
+                  X: =408
+                  Y: =86
+            - cotainer_label:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =38
+                  Size: =25
+                  Text: =T("LBL_ATC_REQUEST")
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =759
+                  Y: =26
+            - vertical_divider:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(214, 221, 224, 1)
+                  Fill: =RGBA(214, 221, 224, 1)
+                  Height: =182
+                  Width: =2
+                  X: =379
+                  Y: =85
