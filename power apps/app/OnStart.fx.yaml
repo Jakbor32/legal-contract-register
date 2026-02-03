@@ -43,6 +43,14 @@ ClearCollect(
     {Key:"LBL_DOWNLOAD_EMPTY_ATC_REQUEST", pl:"Pobierz pusty wniosek ATC", en:"Download empty ATC Request"},
     {Key:"LBL_FILE_UPLOAD", pl:"Załącz plik", en:"File upload"},
     {Key:"LBL_UPLOAD_FILLED_ATC_REQUEST_FILE", pl:"Wgraj poniżej wypełniony plik wniosku ATC", en:"Upload Filled ATC Request File below"},
-    {Key:"LBL_ATC_REQUEST", pl:"WNIOSEK ATC", en:"ATC REQUEST"}
+    {Key:"LBL_ATC_REQUEST", pl:"WNIOSEK ATC", en:"ATC REQUEST"},
+    //edit_contract
+    {Key:"LBL_LINK_TO_ATTACHMENTS", pl:"Kliknij tutaj, aby przejść do edycji załączników", en:"Click here to edit attachments"},
+    {Key:"LBL_CANCEL_REQUEST", pl:"Anuluj Wniosek", en:"Cancel Request"},
+    {Key:"LBL_UPLOAD_FILLED_ATC_REQUEST_FILE", pl:"Wgraj poniżej wypełniony plik wniosku ATC", en:"Upload Filled ATC Request File below"},
+    {Key:"LBL_RESEND_REQUEST", pl:"Wyślij ponownie do weryfikacji", en:"Resend for verification"}
+    {Key:"MSG_CANCEL_REQUEST", pl:"Czy na pewno chcesz anulować ten wniosek?", en:"Are you sure you wish to cancel this request?"},
+    {Key:"BTN_YES", pl:"Tak", en:"Yes"},
+    {Key:"BTN_NO", pl:"Nie", en:"No"}
 
 );
