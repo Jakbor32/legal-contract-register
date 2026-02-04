@@ -89,7 +89,7 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 - [ ] Create screens:
   - [x] New request (create)
   - [ ] Request details (read-only per stage)
-  - [ ] Fix request (edit when status = To fix)
+  - [x] Fix request (edit when status = To fix)
 - [x] Implement required fields validation
 - [x] Implement date rules:
   - [x] No past date (if required by process)
@@ -122,14 +122,14 @@ A Power Platform solution for **registering contracts** and running a **multi-st
 
 #### 4.1 Attachment upload flow
 
-- [ ] Create flow: `UPLOAD_ATTACHMENT`
-- [ ] Trigger: PowerApps (V2)
-- [ ] Inputs:
-  - [ ] ContractId (text)
-  - [ ] File payload (name + contentBytes)
-- [ ] Actions:
-  - [ ] Create folder `/ContractId/` if missing
-  - [ ] Upload file
+- [x] Create flow: `UPLOAD_ATTACHMENT`
+- [x] Trigger: PowerApps (V2)
+- [x] Inputs:
+  - [x] ContractId (text)
+  - [x] File payload (name + contentBytes)
+- [x] Actions:
+  - [x] Create folder `/ContractId/` if missing
+  - [x] Upload file
   - [ ] Set metadata (optional)
   - [ ] Return file link (optional)
 
@@ -266,7 +266,7 @@ flowchart TD
 - [ ] Track approvals in list columns:
   - [ ] ApprovedBy / ApprovedAt (per stage)
   - [ ] RejectionReason + RejectedBy
-- [ ] Keep SharePoint version history enabled
+- [x] Keep SharePoint version history enabled
 - [ ] Add an “Admin view” to list all stuck items by stage
 - [ ] Optional: log flow failures to a separate SharePoint list `flow_errors`
 
@@ -356,5 +356,5 @@ flowchart TD
 
 - [x] **New Request** (add_contract.yaml)
 - [ ] **Request Details** (read-only view)
-- [ ] **Fix Request** (enabled only when status = `To fix`)
+- [x] **Fix Request** (enabled only when status = `To fix`)
 - [ ] **Admin Dashboard** (optional)

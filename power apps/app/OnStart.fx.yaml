@@ -51,6 +51,11 @@ ClearCollect(
     {Key:"LBL_RESEND_REQUEST", pl:"Wyślij ponownie do weryfikacji", en:"Resend for verification"}
     {Key:"MSG_CANCEL_REQUEST", pl:"Czy na pewno chcesz anulować ten wniosek?", en:"Are you sure you wish to cancel this request?"},
     {Key:"BTN_YES", pl:"Tak", en:"Yes"},
-    {Key:"BTN_NO", pl:"Nie", en:"No"}
-
+    {Key:"BTN_NO", pl:"Nie", en:"No"},
+        //notifications
+    {Key:"ERR_INVALID_FILE_FORMAT", pl:"Nieprawidłowy format pliku. Dozwolone są tylko DOC i DOCX.", en:"Invalid file format. Only DOC and DOCX are allowed."},
+    {Key:"LBL_REQUIRED_FIELDS", pl:"Pola wymagane: ", en:"Required fields: "},
+    {Key:"MSG_CONTRACT_ADDED_SUCCESS", pl:"Umowa została dodana pomyślnie.", en:"The contract has been added successfully."},
+    {Key:"MSG_REQUEST_RESENT", pl:"Wniosek został przesłany do ponownej weryfikacji.", en:"The request has been sent for re-verification."},
+    {Key:"MSG_REQUEST_CANCELLED", pl:"Anulowano wniosek.", en:"The request has been cancelled."}
 );
