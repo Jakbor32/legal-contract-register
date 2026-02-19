@@ -30,9 +30,6 @@ ClearCollect(
     {Key:"LBL_CONTACT_PERSON", pl:"Osoba kontaktowa *", en:"Contact person *"},
     {Key:"LBL_PROCUREMENT_TYPE", pl:"Rodzaj zamówienia *", en:"Procurement type *"},
     {Key:"LBL_PERSONAL_DATA_PROCESSING", pl:"Przetwarzanie danych osobowych *", en:"Personal data processing *"},
-    {Key:"LBL_ATC", pl:"ATC *", en:"ATC *"},
-    {Key:"LBL_LEGAL_REVIEW", pl:"Weryfikacja Prawna *", en:"Legal review *"},
-    {Key:"LBL_REALISATION_STATUS", pl:"Status realizacji *", en:"Realisation status *"},
     {Key:"LBL_ATTACHMENTS", pl:"Załączniki", en:"Attachments"},
     {Key:"LBL_ADD_CONTRACT_FILE", pl:"Dodaj plik umowy do sprawdzenia", en:"Add the contract file for review"},
     {Key:"BTN_SUBMIT", pl:"Wyślij", en:"Submit"},
@@ -44,18 +41,18 @@ ClearCollect(
     {Key:"LBL_FILE_UPLOAD", pl:"Załącz plik", en:"File upload"},
     {Key:"LBL_UPLOAD_FILLED_ATC_REQUEST_FILE", pl:"Wgraj poniżej wypełniony plik wniosku ATC", en:"Upload Filled ATC Request File below"},
     {Key:"LBL_ATC_REQUEST", pl:"WNIOSEK ATC", en:"ATC REQUEST"},
-    //edit_contract
+     //edit_contract
     {Key:"LBL_LINK_TO_ATTACHMENTS", pl:"Kliknij tutaj, aby przejść do edycji załączników", en:"Click here to edit attachments"},
-    {Key:"LBL_CANCEL_REQUEST", pl:"Anuluj Wniosek", en:"Cancel Request"},
-    {Key:"LBL_UPLOAD_FILLED_ATC_REQUEST_FILE", pl:"Wgraj poniżej wypełniony plik wniosku ATC", en:"Upload Filled ATC Request File below"},
-    {Key:"LBL_RESEND_REQUEST", pl:"Wyślij ponownie do weryfikacji", en:"Resend for verification"}
+    {Key:"BTN_CANCEL_REQUEST", pl:"Anuluj Wniosek", en:"Cancel Request"},
+    {Key:"BTN_RESEND_REQUEST", pl:"Wyślij ponownie do weryfikacji", en:"Resend for verification"},
     {Key:"MSG_CANCEL_REQUEST", pl:"Czy na pewno chcesz anulować ten wniosek?", en:"Are you sure you wish to cancel this request?"},
     {Key:"BTN_YES", pl:"Tak", en:"Yes"},
     {Key:"BTN_NO", pl:"Nie", en:"No"},
-        //notifications
+    //notifications
     {Key:"ERR_INVALID_FILE_FORMAT", pl:"Nieprawidłowy format pliku. Dozwolone są tylko DOC i DOCX.", en:"Invalid file format. Only DOC and DOCX are allowed."},
     {Key:"LBL_REQUIRED_FIELDS", pl:"Pola wymagane: ", en:"Required fields: "},
     {Key:"MSG_CONTRACT_ADDED_SUCCESS", pl:"Umowa została dodana pomyślnie.", en:"The contract has been added successfully."},
     {Key:"MSG_REQUEST_RESENT", pl:"Wniosek został przesłany do ponownej weryfikacji.", en:"The request has been sent for re-verification."},
     {Key:"MSG_REQUEST_CANCELLED", pl:"Anulowano wniosek.", en:"The request has been cancelled."}
+
 );

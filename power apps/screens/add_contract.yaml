@@ -141,7 +141,7 @@ Screens:
                 Control: ComboBox@0.0.51
                 Properties:
                   Height: =50
-                  Items: =[]
+                  Items: =[""]
                   LayoutMaxHeight: =
                   LayoutMaxWidth: =
                   Width: =712
@@ -487,70 +487,6 @@ Screens:
                   LayoutMaxHeight: =
                   LayoutMaxWidth: =
                   Width: =712
-            - atc_label:
-                Control: Text@0.0.51
-                Properties:
-                  Height: =50
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Size: =20
-                  Text: =T("LBL_ATC")
-                  VerticalAlign: =VerticalAlign.Bottom
-                  Weight: ='TextCanvas.Weight'.Bold
-                  Width: =710
-                  X: =268
-                  Y: =30
-            - atc_select:
-                Control: ComboBox@0.0.51
-                Properties:
-                  Height: =50
-                  Items: =["YES", "NO", "NOT NEEDED"]
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Width: =712
-            - legal_review_label:
-                Control: Text@0.0.51
-                Properties:
-                  Height: =50
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Size: =20
-                  Text: =T("LBL_LEGAL_REVIEW")
-                  VerticalAlign: =VerticalAlign.Bottom
-                  Weight: ='TextCanvas.Weight'.Bold
-                  Width: =710
-                  X: =268
-                  Y: =30
-            - legal_review_select:
-                Control: ComboBox@0.0.51
-                Properties:
-                  Height: =50
-                  Items: =["YES", "NO"]
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Width: =712
-            - status_label:
-                Control: Text@0.0.51
-                Properties:
-                  Height: =50
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Size: =20
-                  Text: =T("LBL_REALISATION_STATUS")
-                  VerticalAlign: =VerticalAlign.Bottom
-                  Weight: ='TextCanvas.Weight'.Bold
-                  Width: =710
-                  X: =268
-                  Y: =30
-            - status_select:
-                Control: ComboBox@0.0.51
-                Properties:
-                  FontWeight: =FontWeight.Normal
-                  Height: =50
-                  Items: =["Open", "Closed", "To be iniciated"]
-                  LayoutMaxHeight: =
-                  LayoutMaxWidth: =
-                  Width: =712
             - external_attachments_container:
                 Control: GroupContainer@1.4.0
                 Variant: ManualLayout
@@ -585,14 +521,14 @@ Screens:
                       Properties:
                         AllowDropFilesText: ="Upuść pliki tutaj"
                         AllowMultipleFiles: =true
-                        AllowedFileTypes: =".doc;.docx"
+                        AllowedFileTypes: =".docx"
                         ButtonIcon: ="DocumentArrowUp"
                         ButtonSize: ='cdFI.FluentFilesImportControl.ButtonSize'.Large
                         Height: =51
                         OnChange: |-
                           = If(!IsBlank(FluentFilesImportControl1_3.FilesAsJSON),
                                           Notify("Załącznik nr 1 dodany pomyślnie", NotificationType.Success))
-                        SecondaryContent: ="Doc, Docx"
+                        SecondaryContent: ="Docx"
                         ShowSecondaryContent: =true
                         Text: =T("LBL_ADD_CONTRACT_FILE")
                         Width: =384
@@ -606,7 +542,33 @@ Screens:
             Height: =49
             Icon: ="Add"
             Layout: ='ButtonCanvas.Layout'.TextOnly
-            OnSelect: "=Set(\r\n    hasInvalidFiles,\r\n    !IsEmpty(\r\n        Filter(\r\n            Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),\r\n            !(Lower(Right(Value.name, 5)) = \".docx\" || Lower(Right(Value.name, 4)) = \".doc\")\r\n        )\r\n        \r\n    )\r\n);\r\n  If(\r\n    hasInvalidFiles,\r\n    Notify(T(\"ERR_INVALID_FILE_FORMAT\"), NotificationType.Error)\r\n);\r\n  \r\n  \r\n   Set(missingFields, \"\");\r\n\r\n\r\n// Sprawdzenia każdego pola\r\nIf(IsBlank(contract_id_input.Value),\r\n   Set(missingFields, missingFields & \"ID umowy, \")\r\n);\r\n\r\nIf(IsBlank(contract_title_input.Value),\r\n   Set(missingFields, missingFields & \"Tytuł umowy, \")\r\n);\r\nIf(IsBlank(desc_input.Value),\r\n   Set(missingFields, missingFields & \"Description, \")\r\n);\r\n\r\nIf(IsBlank(contractor_select.Selected),\r\n   Set(missingFields, missingFields & \"Contractor full name, \")\r\n);\r\n\r\nIf(IsBlank(date_picker_1.SelectedDate),\r\n   Set(missingFields, missingFields & \"Date of concluding agr., \")\r\n);\r\n\r\n//If(IsBlank(ComboboxCanvas1_8.Selected),\r\n //  Set(missingFields, missingFields & \"Currency, \")\r\n//);\r\n\r\nIf(IsBlank(start_date_picker_2.SelectedDate),\r\n   Set(missingFields, missingFields & \"Start date, \")\r\n);\r\n\r\nIf(IsBlank(team_select.Selected),\r\n   Set(missingFields, missingFields & \"Team, \")\r\n);\r\n\r\nIf(IsBlank(contact_person_select.Selected),\r\n   Set(missingFields, missingFields & \"Contact person, \")\r\n);\r\n\r\nIf(IsBlank(procurement_type_select.Selected),\r\n   Set(missingFields, missingFields & \"Procurement type, \")\r\n);\r\n\r\nIf(IsBlank(pdp_select.Selected),\r\n   Set(missingFields, missingFields & \"Personal data processing, \")\r\n);\r\n\r\nIf(IsBlank(atc_select.Selected),\r\n   Set(missingFields, missingFields & \"ATC, \")\r\n);\r\n\r\nIf(IsBlank(legal_review_select.Selected),\r\n   Set(missingFields, missingFields & \"Legal review, \")\r\n);\r\n\r\nIf(IsBlank(status_select.Selected),\r\n   Set(missingFields, missingFields & \"Realisation status, \")\r\n);\r\nIf(IsBlank(FluentFilesImportControl1_3.FilesAsJSON),\r\n    Set(missingFields, missingFields & \"Brak załącznika, \")\r\n);\r\nIf(\r\n   !IsBlank(contract_id_input.Value) &&\r\n!IsBlank(contract_title_input.Value) &&\r\n!IsBlank(signer_select.Selected) &&\r\n!IsBlank(date_picker_1.SelectedDate) &&\r\n//!IsBlank(ComboboxCanvas1_8.Selected) &&\r\n!IsBlank(desc_input.Value) &&\r\n!IsBlank(start_date_picker_2.SelectedDate) &&\r\n!IsBlank(team_select.Selected) &&\r\n!IsBlank(contact_person_select.Selected) &&\r\n!IsBlank(procurement_type_select.Selected) &&\r\n!IsBlank(pdp_select.Selected) &&\r\n!IsBlank(atc_select.Selected) &&\r\n!IsBlank(legal_review_select.Selected) &&\r\n!IsBlank(FluentFilesImportControl1_3.FilesAsJSON) &&\r\n!IsBlank(status_select.Selected) &&\r\n!hasInvalidFiles,\r\n \r\n    With(\r\n        {\r\n            newRecord: Patch(\r\n                contract_register,\r\n                Defaults(contract_register),\r\n                {\r\n                    Title: contract_id_input.Value,\r\n                    contract_title: contract_title_input.Value,\r\n                    contract_type: {\r\n                        Value: If(contract_type_value.Checked, \"Podpis odręczny\", \"Podpis elektroniczny\")\r\n                    },\r\n                    annex: annex_value.Checked,\r\n                    signer: signer_select.Selected.Value,\r\n                    Contractor_full_name: contractor_select.Selected.Nazwa,\r\n                    Tax_no:tax_input.Value,\r\n                    registration_no: reg_no_input.Value,\r\n                    Date_of_concluding_agr: date_picker_1.SelectedDate,\r\n                    Currency: currency_select.Selected.Value,\r\n                    Amount: amount_value.Value,\r\n                    start_flow: true,\r\n                    Description:desc_input.Value, \r\n                    Start_date:start_date_picker_2.SelectedDate,\r\n                    End_date:end_date_picker_3.SelectedDate,\r\n                    Team: team_select.Selected.Value, \r\n                    Contact_person: {\r\n    '@odata.type': \"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser\",\r\n    Picture: Office365Users.UserPhotoV2(contact_person_select.Selected.Id),\r\n    Claims: \"i:0#.f|membership|\" & Lower(contact_person_select.Selected.Mail),\r\n    DisplayName: contact_person_select.Selected.DisplayName,\r\n    Email: contact_person_select.Selected.Mail,\r\n    Department: contact_person_select.Selected.Department,\r\n    JobTitle: contact_person_select.Selected.JobTitle\r\n},\r\n                    Procurement_type:procurement_type_select.Selected.Value, \r\n                    Person_data_processing:pdp_select.Selected.Value, \r\n                    ATC:atc_select.Selected.Value,\r\n                    Legal_review:legal_review_select.Selected.Value,\r\n                    Realisation_status:status_select.Selected.Value\r\n                }\r\n            )\r\n        },\r\n        \r\n        If(\r\n            !IsBlank(newRecord),\r\n            //forward to global var\r\n              Set(gblNewRecord, newRecord);\r\n\r\n            Notify(T(\"MSG_CONTRACT_ADDED_SUCCESS\"), NotificationType.Success);\r\nReset(contract_id_input);            // Title\r\nReset(contract_title_input);          // contract_title\r\nReset(contract_type_value);             // contract_type\r\nReset(signer_select);           // signer\r\nReset(signer_select);          // Contractor_full_name\r\nReset(tax_input);          // Tax_no\r\nReset(reg_no_input);          // registration_no\r\nReset(date_picker_1);           // Date_of_concluding_agr\r\nReset(currency_select);           // Currency\r\nReset(amount_value);                // Amount\r\nReset(desc_input);          // Description\r\nReset(start_date_picker_2);         // Start_date\r\nReset(end_date_picker_3);         // End_date\r\nReset(team_select);             // Team\r\nReset(contact_person_select);           // Contact_person\r\nReset(procurement_type_select);           // Procurement_type\r\nReset(pdp_select);           // Person_data_processing\r\nReset(atc_select);           // ATC\r\nReset(legal_review_select);           // Legal_review\r\nReset(status_select);\r\nNavigate(upload_atc_request,ScreenTransition.Fade);\r\n\r\n            // załącznik 1\r\n           // ForAll(\r\n           //     Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),\r\n           //    'zalacznik1'.Run(Text(newRecord.ID),\r\n           //  {file:\r\n           //{ contentBytes: Text(ThisRecord.Value.contentBytes), name: Text(ThisRecord.Value.name) }\r\n           //  }\r\n       // )\r\n         //   );\r\n         If(\r\n    hasInvalidFiles,\r\n    Notify(T(\"ERR_INVALID_FILE_FORMAT\"), NotificationType.Error),\r\nForAll(\r\n    Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)), \r\n        \r\n        'zalacznik1'.Run(Text(newRecord.ID),\r\n            {\r\n                file: {\r\n                    contentBytes: Text(ThisRecord.Value.contentBytes),\r\n                    name: Text(ThisRecord.Value.name)\r\n                }\r\n            }\r\n        )\r\n    )\r\n         )\r\n\r\n            );\r\n    ),\r\n\r\n    Len(missingFields) > 0,\r\n   Notify(\r\n      T(\"LBL_REQUIRED_FIELDS\") & Left(missingFields, Len(missingFields) - 2),\r\n      NotificationType.Warning\r\n   )\r\n)\r\n"
+            OnSelect: "=If(
+    IsBlank(FluentFilesImportControl1_3.FilesAsJSON) 
+        || Len(FluentFilesImportControl1_3.FilesAsJSON) = 0,
+        
+    Set(hasInvalidFiles, false),
+
+    IfError(
+        Set(
+            hasInvalidFiles,
+            !IsEmpty(
+                Filter(
+                    Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),
+                    With(
+                        { _n: Lower(Text(Value.name)) },
+                        !(Right(_n, 5) = ".docx" || Right(_n, 4) = ".doc")
+                    )
+                )
+            )
+        ),
+        Set(hasInvalidFiles, true)
+    )
+);
+
+If(
+    hasInvalidFiles,
+    Notify(T("ERR_INVALID_FILE_FORMAT"), NotificationType.Error)
+);\r\n);\r\n  \r\n  \r\n   Set(missingFields, \"\");\r\n\r\n\r\n// Sprawdzenia każdego pola\r\nIf(IsBlank(contract_id_input.Value),\r\n   Set(missingFields, missingFields & \"ID umowy, \")\r\n);\r\n\r\nIf(IsBlank(contract_title_input.Value),\r\n   Set(missingFields, missingFields & \"Tytuł umowy, \")\r\n);\r\nIf(IsBlank(desc_input.Value),\r\n   Set(missingFields, missingFields & \"Description, \")\r\n);\r\n\r\nIf(IsBlank(contractor_select.Selected),\r\n   Set(missingFields, missingFields & \"Contractor full name, \")\r\n);\r\n\r\nIf(IsBlank(date_picker_1.SelectedDate),\r\n   Set(missingFields, missingFields & \"Date of concluding agr., \")\r\n);\r\n\r\n//If(IsBlank(ComboboxCanvas1_8.Selected),\r\n //  Set(missingFields, missingFields & \"Currency, \")\r\n//);\r\n\r\nIf(IsBlank(start_date_picker_2.SelectedDate),\r\n   Set(missingFields, missingFields & \"Start date, \")\r\n);\r\n\r\nIf(IsBlank(team_select.Selected),\r\n   Set(missingFields, missingFields & \"Team, \")\r\n);\r\n\r\nIf(IsBlank(contact_person_select.Selected),\r\n   Set(missingFields, missingFields & \"Contact person, \")\r\n);\r\n\r\nIf(IsBlank(procurement_type_select.Selected),\r\n   Set(missingFields, missingFields & \"Procurement type, \")\r\n);\r\n\r\nIf(IsBlank(pdp_select.Selected),\r\n   Set(missingFields, missingFields & \"Personal data processing, \")\r\n);\r\n\r\nIf(IsBlank(FluentFilesImportControl1_3.FilesAsJSON),\r\n    Set(missingFields, missingFields & \"Brak załącznika, \")\r\n);\r\nIf(\r\n   !IsBlank(contract_id_input.Value) &&\r\n!IsBlank(contract_title_input.Value) &&\r\n!IsBlank(signer_select.Selected) &&\r\n!IsBlank(date_picker_1.SelectedDate) &&\r\n//!IsBlank(ComboboxCanvas1_8.Selected) &&\r\n!IsBlank(desc_input.Value) &&\r\n!IsBlank(start_date_picker_2.SelectedDate) &&\r\n!IsBlank(team_select.Selected) &&\r\n!IsBlank(contact_person_select.Selected) &&\r\n!IsBlank(procurement_type_select.Selected) &&\r\n!IsBlank(pdp_select.Selected) &&\r\n!IsBlank(FluentFilesImportControl1_3.FilesAsJSON) &&\r\n!hasInvalidFiles,\r\n \r\n    With(\r\n        {\r\n            newRecord: Patch(\r\n                contract_register,\r\n                Defaults(contract_register),\r\n                {\r\n                    Title: contract_id_input.Value,\r\n                    contract_title: contract_title_input.Value,\r\n                    contract_type: {\r\n                        Value: If(contract_type_value.Checked, \"Podpis odręczny\", \"Podpis elektroniczny\")\r\n                    },\r\n                    annex: annex_value.Checked,\r\n                    signer: signer_select.Selected.Value,\r\n                    Contractor_full_name: contractor_select.Selected.Nazwa,\r\n                    Tax_no:tax_input.Value,\r\n                    registration_no: reg_no_input.Value,\r\n                    Date_of_concluding_agr: date_picker_1.SelectedDate,\r\n                    Currency: currency_select.Selected.Value,\r\n                    Amount: amount_value.Value,\r\n                    start_flow: true,\r\n                    Description:desc_input.Value, \r\n                    Start_date:start_date_picker_2.SelectedDate,\r\n                    End_date:end_date_picker_3.SelectedDate,\r\n                    Team: team_select.Selected.Value, \r\n                    Contact_person: {\r\n    '@odata.type': \"#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser\",\r\n    Picture: Office365Users.UserPhotoV2(contact_person_select.Selected.Id),\r\n    Claims: \"i:0#.f|membership|\" & Lower(contact_person_select.Selected.Mail),\r\n    DisplayName: contact_person_select.Selected.DisplayName,\r\n    Email: contact_person_select.Selected.Mail,\r\n    Department: contact_person_select.Selected.Department,\r\n    JobTitle: contact_person_select.Selected.JobTitle\r\n},\r\n                    Procurement_type:procurement_type_select.Selected.Value, \r\n                    Person_data_processing:pdp_select.Selected.Value\r\n                }\r\n            )\r\n        },\r\n        \r\n        If(\r\n            !IsBlank(newRecord),\r\n            //forward to global var\r\n              Set(gblNewRecord, newRecord);\r\n\r\n            Notify(T(\"MSG_CONTRACT_ADDED_SUCCESS\"), NotificationType.Success);\r\nReset(contract_id_input);            // Title\r\nReset(contract_title_input);          // contract_title\r\nReset(contract_type_value);             // contract_type\r\nReset(signer_select);           // signer\r\nReset(signer_select);          // Contractor_full_name\r\nReset(tax_input);          // Tax_no\r\nReset(reg_no_input);          // registration_no\r\nReset(date_picker_1);           // Date_of_concluding_agr\r\nReset(currency_select);           // Currency\r\nReset(amount_value);                // Amount\r\nReset(desc_input);          // Description\r\nReset(start_date_picker_2);         // Start_date\r\nReset(end_date_picker_3);         // End_date\r\nReset(team_select);             // Team\r\nReset(contact_person_select);           // Contact_person\r\nReset(procurement_type_select);           // Procurement_type\r\nReset(pdp_select);           // Person_data_processing\r\nNavigate(upload_atc_request,ScreenTransition.Fade);\r\n\r\n            // załącznik 1\r\n           // ForAll(\r\n           //     Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)),\r\n           //    'zalacznik1'.Run(Text(newRecord.ID),\r\n           //  {file:\r\n           //{ contentBytes: Text(ThisRecord.Value.contentBytes), name: Text(ThisRecord.Value.name) }\r\n           //  }\r\n       // )\r\n         //   );\r\n         If(\r\n    hasInvalidFiles,\r\n    Notify(T(\"ERR_INVALID_FILE_FORMAT\"), NotificationType.Error),\r\nForAll(\r\n    Table(ParseJSON(FluentFilesImportControl1_3.FilesAsJSON)), \r\n        \r\n        'zalacznik1'.Run(Text(newRecord.ID),\r\n            {\r\n                file: {\r\n                    contentBytes: Text(ThisRecord.Value.contentBytes),\r\n                    name: Text(ThisRecord.Value.name)\r\n                }\r\n            }\r\n        )\r\n    )\r\n         )\r\n\r\n            );\r\n    ),\r\n\r\n    Len(missingFields) > 0,\r\n   //Notify(\r\n     // T(\"LBL_REQUIRED_FIELDS\") & Left(missingFields, Len(missingFields) - 2),\r\n      //NotificationType.Warning\r\n   //)\r\n   Set(toast_1,GUID());\r\n)\r\n"
             Text: =T("BTN_SUBMIT")
             Width: =134
             X: =1132
@@ -687,9 +649,6 @@ Screens:
                     Reset(contact_person_select);           // Contact_person
                     Reset(procurement_type_select);           // Procurement_type
                     Reset(pdp_select);           // Person_data_processing
-                    Reset(atc_select);           // ATC
-                    Reset(legal_review_select);           // Legal_review
-                    Reset(status_select);
                     Set(varModal,false)
                   Text: =T("BTN_CLEAR")
                   X: =224
@@ -734,3 +693,16 @@ Screens:
                     =Set(varLang, If(varLang="pl","en","pl"));
                   Text: =
                   Width: =92
+      - HotToast1:
+          Control: CodeComponent
+          ComponentName: BorowyJ_Contoso.HotToast
+          Properties:
+            Y: =568
+            durationMs: =6000
+            iconSet: ='Contoso.HotToast.iconSet'.bold
+            maxWidthPx: =500
+            message: =T("LBL_REQUIRED_FIELDS") & missingFields
+            minWidthPx: =500
+            size: ='Contoso.HotToast.size'.sm
+            triggerKey: =toast_1
+            variant: ='Contoso.HotToast.variant'.warning
