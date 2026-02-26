@@ -41,6 +41,10 @@ ClearCollect(
     {Key:"LBL_FILE_UPLOAD", pl:"Załącz plik", en:"File upload"},
     {Key:"LBL_UPLOAD_FILLED_ATC_REQUEST_FILE", pl:"Wgraj poniżej wypełniony plik wniosku ATC", en:"Upload Filled ATC Request File below"},
     {Key:"LBL_ATC_REQUEST", pl:"WNIOSEK ATC", en:"ATC REQUEST"},
+    {Key:"LBL_EXPECTED_FILE", pl:"Oczekiwany plik", en:"Expected file"},
+    {Key:"LBL_UPLOADED_FILE", pl:"Wgrany plik", en:"Uploaded file"},
+    {Key:"LBL_INVALID_FILE_NAME_OR_FORMAT", pl:"Niepoprawna nazwa lub format pliku! Prześlij plik ponownie.", en:"Invalid file name or format! Please upload the file again."},
+    {Key:"LBL_ATC_UPLOAD_SUCCESS_FLOW_STARTED_PREVIEW", pl:"Plik poprawny. Flow zostało uruchomione. Możesz przejść do podglądu Twojego wniosku - kliknij przycisk, który wyświetlił się poniżej na ekranie.", en:"The file is valid. The flow has been started. You can go to the preview of your request - click the button displayed below on the screen."},
      //edit_contract
     {Key:"LBL_LINK_TO_ATTACHMENTS", pl:"Kliknij tutaj, aby przejść do edycji załączników", en:"Click here to edit attachments"},
     {Key:"BTN_CANCEL_REQUEST", pl:"Anuluj Wniosek", en:"Cancel Request"},

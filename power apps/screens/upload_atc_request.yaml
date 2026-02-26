@@ -11,7 +11,7 @@ Screens:
           Properties:
             Height: =306
             Width: =759
-            X: =305
+            X: =302
             Y: =200
           Children:
             - btn_upload_atc:
@@ -19,29 +19,28 @@ Screens:
                 ComponentName: citdevkk_cdFI.FluentFilesImportControl
                 Properties:
                   ButtonSize: ='cdFI.FluentFilesImportControl.ButtonSize'.Large
-                  DisabledFocusable: |
-                    =If(varHasRealFile, true,false)
+                  DisabledFocusable: =If(varHasRealFile, true,false)
+                  DisplayMode: ="10"
                   Height: =43
-                  OnChange: |
-                    =//check file
+                  OnChange: |-
+                    =// check file
+                    Set(
+                        hasNoATCFile,
+                        IfError(
+                            CountRows(Table(ParseJSON(btn_upload_atc.FilesAsJSON))) = 0,
+                            true
+                        )
+                    );
+
                     Set(
                         hasInvalidATCFileName,
+                        !hasNoATCFile &&
                         !IsEmpty(
                             Filter(
                                 Table(ParseJSON(btn_upload_atc.FilesAsJSON)) As file,
-                                !(
-                                    StartsWith(Lower(file.Value.name & ""), "atc request_") &&
-                                    (
-                                        Lower(Right(file.Value.name & "", 5)) = ".docx" ||
-                                        Lower(Right(file.Value.name & "", 4)) = ".doc"
-                                    ) &&
-                                    Len(
-                                        Substitute(
-                                            Substitute(Lower(file.Value.name & ""), "atc request_", ""),
-                                            If(Lower(Right(file.Value.name & "", 5)) = ".docx", ".docx", ".doc"),
-                                            ""
-                                        )
-                                    ) > 0
+                                !IsMatch(
+                                    Lower(file.Value.name & ""),
+                                    "^atc request_.+\.(doc|docx)$"
                                 )
                             )
                         )
@@ -49,8 +48,12 @@ Screens:
 
                     // upload
                     If(
-                        hasInvalidATCFileName,
-                        Notify("Dozwolony jest tylko plik ATC REQUEST", NotificationType.Error),
+                        hasNoATCFile || hasInvalidATCFileName,
+
+
+                        Set(varHasRealFile, false);
+                        Set(toast_3, GUID()),
+
                         ForAll(
                             Table(ParseJSON(btn_upload_atc.FilesAsJSON)) As file,
                             REJESTR_PRAWNY_ATC_UPLOAD.Run(
@@ -60,15 +63,9 @@ Screens:
                                 },
                                 Text(gblNewRecord.ID)
                             )
-                        )
-                    );
-                    //block after upload
-                    Set(
-                        varHasRealFile,
-                        IfError(
-                            CountRows(Table(ParseJSON(btn_upload_atc.FilesAsJSON))) > 0,
-                            false
-                        )
+                        );
+                        Set(varHasRealFile, true);
+                        Set(toast_2, GUID())
                     );
                   Text: =T("LBL_FILE_UPLOAD")
                   Width: =168
@@ -116,3 +113,111 @@ Screens:
                   Width: =2
                   X: =379
                   Y: =85
+      - HotToast2:
+          Control: CodeComponent
+          ComponentName: BorowyJ_Contoso.HotToast
+          Properties:
+            durationMs: =8000
+            message: =T("LBL_ATC_UPLOAD_SUCCESS_FLOW_STARTED_PREVIEW")
+            triggerKey: =toast_2
+            variant: ='Contoso.HotToast.variant'.success
+      - Table2:
+          Control: Table@1.0.278
+          Properties:
+            DisplayMode: =DisplayMode.View
+            EnableRangeSelection: ="no"
+            EnableSorting: ="no"
+            FontColor: |-
+              =With(
+                  {
+                      _expectedName: "ATC REQUEST_Vendor.docx",
+                      _uploadedName: IfError(
+                          First(Table(ParseJSON(btn_upload_atc.FilesAsJSON))).Value.name & "",
+                          ""
+                      )
+                  },
+                  If(
+                      IsBlank(_uploadedName),
+                      Color.Black,
+                      If(
+                          Lower(Trim(_uploadedName)) = Lower(Trim(_expectedName)),
+                          Color.Green,
+                          Color.Red
+                      )
+                  )
+              )
+            Height: =188
+            Items: |-
+              =With(
+                  {
+                      _uploadedName: IfError(
+                          First(Table(ParseJSON(btn_upload_atc.FilesAsJSON))).Value.name & "",
+                          ""
+                      )
+                  },
+                  Table(
+                      {
+                          Label: T("LBL_EXPECTED_FILE"),
+                          Value: "ATC REQUEST_Vendor.docx"
+                      },
+                      {
+                          Label: T("LBL_UPLOADED_FILE"),
+                          Value: If(IsBlank(_uploadedName), ".........", _uploadedName)
+                      }
+                  )
+              )
+            ReflowBehavior: ='PowerAppsOneGrid.ReflowBehavior'.ListOnly
+            ShowAvatar: ="no"
+            ShowColumnHeaders: ="no"
+            ShowFooter: ="no"
+            Width: =246
+            X: =1087
+            Y: =259
+          Children:
+            - Label1:
+                Control: TableDataField@1.5.0
+                Variant: textualColumn
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Label"
+                  FieldName: ="Label"
+                  FieldType: ="s"
+                  Order: =1
+            - Value1:
+                Control: TableDataField@1.5.0
+                Variant: textualColumn
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =2
+      - HotToast3:
+          Control: CodeComponent
+          ComponentName: BorowyJ_Contoso.HotToast
+          Properties:
+            X: =20
+            Y: =20
+            message: =T("LBL_INVALID_FILE_NAME_OR_FORMAT")
+            triggerKey: =toast_3
+            variant: ='Contoso.HotToast.variant'.error
+      - ButtonCanvas1:
+          Control: Button@0.0.45
+          Properties:
+            Height: =48
+            Text: ="Next"
+            Visible: |-
+              =With(
+                  {
+                      _expectedName: "ATC REQUEST_Vendor.docx",
+                      _uploadedName: IfError(
+                          First(Table(ParseJSON(btn_upload_atc.FilesAsJSON))).Value.name & "",
+                          ""
+                      )
+                  },
+                  !IsBlank(_uploadedName) &&
+                  Lower(Trim(_uploadedName)) = Lower(Trim(_expectedName))
+              )
+            Width: =102
+            X: =630
+            Y: =617
