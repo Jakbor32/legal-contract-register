@@ -52,6 +52,7 @@ ClearCollect(
     {Key:"MSG_CANCEL_REQUEST", pl:"Czy na pewno chcesz anulować ten wniosek?", en:"Are you sure you wish to cancel this request?"},
     {Key:"BTN_YES", pl:"Tak", en:"Yes"},
     {Key:"BTN_NO", pl:"Nie", en:"No"},
+    {Key:"MSG_REQUEST_SEND_AGAIN_SUCCESS", pl:"Wniosek został przesłany do ponownej weryfikacji.",en:"Your request has been sent for re-verification."},
     //notifications
     {Key:"ERR_INVALID_FILE_FORMAT", pl:"Nieprawidłowy format pliku. Dozwolone są tylko DOC i DOCX.", en:"Invalid file format. Only DOC and DOCX are allowed."},
     {Key:"LBL_REQUIRED_FIELDS", pl:"Pola wymagane: ", en:"Required fields: "},

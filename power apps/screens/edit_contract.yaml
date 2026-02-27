@@ -762,3 +762,53 @@ Screens:
                   Text: =T("BTN_YES")
                   X: =224
                   Y: =184
+      - Rectangle1_3:
+          Control: Rectangle@2.3.0
+          Group: modal_success
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 0, 0, 0.4)
+            Height: =768
+            OnSelect: =Set(varModal2,false)
+            Visible: =varModal3
+            Width: =1366
+      - Container2_3:
+          Control: GroupContainer@1.4.0
+          Variant: ManualLayout
+          Group: modal_success
+          Properties:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =242
+            Visible: =varModal3
+            Width: =382
+            X: =492
+            Y: =266
+          Children:
+            - TextCanvas1_3:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =88
+                  Size: =20
+                  Text: =T("MSG_REQUEST_SEND_AGAIN_SUCCESS")
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =344
+                  X: =20
+                  Y: =73
+            - ButtonCanvas3_3:
+                Control: Button@0.0.45
+                Properties:
+                  OnSelect: =Set(varModal3,false)
+                  Text: ="Next"
+                  X: =144
+                  Y: =181
+            - Icon1:
+                Control: Icon@0.0.7
+                Properties:
+                  Height: =68
+                  Icon: ="CheckmarkCircle"
+                  IconColor: =RGBA(52, 152, 47, 1)
+                  IconStyle: ='Icon.IconStyle'.Filled
+                  Width: =85
+                  X: =149
+                  Y: =12
